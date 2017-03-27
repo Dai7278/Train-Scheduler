@@ -71,33 +71,34 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey) {
   console.log(trnTime);
   console.log(trnFre);
 
-  // // First Train Time (pushed back 1 year to make sure it comes before current time)
-  //   var trnTimeConverted = moment(trnTime, "HH:mm").subtract(1, "years");
-  //   console.log(trnTimeConverted);
+  // First Train Time (pushed back 1 year to make sure it comes before current time)
+    var trnTimeConverted = moment(trnTime, "HH:mm").subtract(1, "years");
+    console.log(trnTimeConverted);
 
-  // // Current Time
-  //   var currentTime = moment();
-  //   console.log("CURRENT TIME: " + moment(currentTime).format("HH:mm"));
+  // Current Time
+    var currentTime = moment();
+    console.log("CURRENT TIME: " + moment(currentTime).format("HH:mm"));
 
-  //   // Difference between the times
-  //   var diffTime = moment().diff(moment(trnTimeConverted), "minutes");
-  //   console.log("DIFFERENCE IN TIME: " + diffTime);
+    // Difference between the times
+    var diffTime = moment().diff(moment(trnTimeConverted), "minutes");
+    console.log("DIFFERENCE IN TIME: " + diffTime);
 
-  //   // Time apart (remainder)
-  //   var trnRemainder = diffTime % trnFre;
-  //   console.log(trnRemainder);
+    // Time apart (remainder)
+    var trnRemainder = diffTime % trnFre;
+    console.log(trnRemainder);
 
-  //   // Minute Until Train
-  //   var trnMinutesTill = trnFre - trnRemainder;
-  //   console.log("MINUTES TILL TRAIN: " + trnMinutesTill);
+    // Minute Until Train
+    var trnMinutesTill = trnFre - trnRemainder;
+    console.log("MINUTES TILL TRAIN: " + trnMinutesTill);
 
-  //   // Next Train
-  //   var nextTrain = moment().add(trnMinutesTill, "minutes");
-  //   console.log("ARRIVAL TIME: " + moment(nextTrain).format("HH:mm"));
+    // Next Train
+    var nextTrain = moment().add(trnMinutesTill, "minutes");
+    console.log("ARRIVAL TIME: " + moment(nextTrain).format("HH:mm"));
 
   
 
-  // // Add each train's data into the table
-  // $("#train-table > tbody").append("<tr><td>" + trainName + "</td><td>" + trnDes + "</td><td>" +
-  // trnFre + "</td><td>" + moment(nextTrain).format("HH:mm") + "</td><td>" + trnMinutesTill + "</td><td>" + "" + "</td></tr>");
+  // Add train info into the amtrak table
+  $("#train-table > tbody").append("<tr><td>" + trainName + "</td><td>" + trnDes + "</td><td>" +
+  trnFre + "</td><td>" + moment(nextTrain).format("HH:mm") + "</td><td>" + trnMinutesTill + "</td><td>" + "" + "</td></tr>");
+  
 });
